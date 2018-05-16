@@ -1,5 +1,5 @@
 
-var app = angular.module("App", ["ngRoute"]);
+var app = angular.module("App", ["ngRoute", "firebase"]);
 
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {

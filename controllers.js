@@ -5,8 +5,11 @@ app.controller('FirstController', ['$scope', function ($scope) {
     
 }]);
 
-app.controller('SignUpController', ['$scope', '$location', function ($scope, $location) {
+app.controller('SignUpController', ['$scope', '$location', '$firebaseAuth', function ($scope, $location, $firebaseAuth) {
 
+    $scope.signUpWithFacebook = function (service) {
+        $firebaseAuth().$signInWithPopup(service);
+    };
 
 
  
@@ -15,8 +18,11 @@ app.controller('LoginController', ['$scope', '$location', function ($scope, $loc
     
 }]);
 
-app.controller('AuthCtrl', ['$scope', '$location', function ($scope, $location) {
+app.controller('AuthCtrl', ['$scope', '$location', '$firebaseAuth', function ($scope, $location, $firebaseAuth) {
 
+$firebaseAuth().$onAuthStateChanged(function (user) {
+    console.log(user);
+});
     
 
 
